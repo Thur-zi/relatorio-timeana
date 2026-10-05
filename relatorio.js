@@ -36,7 +36,7 @@ const bhM = D.municipios.find(m => m.mun === 41238);
 $("#kpis").innerHTML = [
   ["dest", int(C.votos26), "votos em 2026"], ["", "+" + pct(cresc, 0), `sobre 2022 (${int(C.votos22)} votos)`],
   ["", C.pos_federacao + "ª", `mais votada da federação, eleita por quociente partidário`], ["", int(T.municipios_com_voto26), `cidades com voto (eram ${int(T.municipios_com_voto22)} em 2022)`],
-  ["", int(T.bh_v26), `votos em Belo Horizonte (+${pct(T.bh_v26 / T.bh_v22 - 1, 0)})`], ["dest", int(B.total_unicos), "contatos construídos com a mobilização"],
+  ["", int(T.bh_v26), `votos em Belo Horizonte (+${pct(T.bh_v26 / T.bh_v22 - 1, 0)})`], ["dest", int(B.total_unicos), "contatos construídos com a MOBI"],
 ].map(([c, v, t]) => `<div class="kpi ${c}"><b>${v}</b><span>${t}</span></div>`).join("");
 
 /* ---------- resumo */
