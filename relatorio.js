@@ -49,7 +49,7 @@ $("#achados").innerHTML = [
   ["amar", int(T.bh_v26), `votos em Belo Horizonte (${pct(T.bh_v26 / C.votos26, 0)} do total), ${pct(T.bh_v26 / T.bh_v22 - 1, 0)} a mais que em 2022. A Regional ${D.regionais[0].nome} segue como a principal base; ${RG[0].nome} e ${RG[1].nome} foram as que mais cresceram.`],
   ["", int(B.total_unicos), `contatos únicos construídos com a mobilização da MOBI em 10 frentes (Time Ana, petições temáticas e pesquisas de campo), ${int(mult[2])} assinaturas trazidas por uma rede de ${int(mult[1])} lideranças.`],
   ["verm", `${int(dom.v22)} → ${int(dom.v26)}`, `votos em Dom Joaquim, onde a pauta do asfaltamento da MG-229 reuniu ${int(dom.assinaturas)} assinaturas; em Viçosa, cidade da petição SOS Oncologia, foram ${int(vic.v22)} → ${int(vic.v26)} votos.`],
-  ["amar", pp(cBH[3].ana_dpp), `foi quanto a Ana cresceu nos bairros de BH com mais contatos por eleitor, mais que o dobro dos bairros com menos contatos (${pp(cBH[0].ana_dpp)}).`],
+  ["amar", pp(cBH[3].ana_dpp), `(pontos percentuais) foi quanto a Ana cresceu nos bairros de BH com mais contatos por eleitor, mais que o dobro dos bairros com menos contatos (${pp(cBH[0].ana_dpp)}).`],
 ].map(([c, n, t]) => `<div class="achado ${c}"><b class="n">${n}</b><div>${t}</div></div>`).join("");
 
 /* ---------- o trabalho: linha do tempo, contatos por ação, sobreposição */
@@ -249,7 +249,8 @@ const cc = D.concorrentes_bh, mxc = cc[0].votos;
 $("#concBH").innerHTML = cc.map(c => `<div class="l"><span>${c.eu ? "<b>" : ""}${esc(titulo(c.nome))}${c.eu ? "</b>" : ""} <span class="chip">${esc(c.partido)}</span></span><i style="width:${c.votos / mxc * 100}%;max-width:40%;background:${c.eu ? COR.vermelho : COR.lilas}"></i><em>${int(c.votos)}</em></div>`).join("");
 
 /* ---------- metodologia */
-$("#metodoTexto").innerHTML = `<p><b>Votação 2026:</b> boletins de urna publicados pelo TSE, seção por seção, conferidos com o arquivo oficial de detalhe da votação por seção (100% iguais). Total oficial: ${int(C.votos26)} votos, situação "${esc(C.situacao)}".</p>
+$("#metodoTexto").innerHTML = `<p><b>Como ler os números:</b> <b>p.p.</b> (pontos percentuais) é a diferença entre duas porcentagens; se a Ana foi de 2,13% para 3,25% dos votos válidos, cresceu +1,12 p.p. <b>Participação</b> é a fatia dos votos válidos para deputado estadual que foi para a Ana. <b>×</b> indica quantas vezes a participação cresceu (2,2× = mais que o dobro). <b>Contatos por mil eleitores</b> mede o tamanho da base de contatos em relação ao eleitorado de cada lugar.</p>
+<p><b>Votação 2026:</b> boletins de urna publicados pelo TSE, seção por seção, conferidos com o arquivo oficial de detalhe da votação por seção (100% iguais). Total oficial: ${int(C.votos26)} votos, situação "${esc(C.situacao)}".</p>
 <p><b>Votação 2022:</b> arquivo oficial "votação por seção" do TSE (${int(C.votos22)} votos). Bairros e escolas de 2022 foram ligados aos locais de votação de 2026 pela zona e seção; cidades usam o total oficial.</p>
 <p><b>Federação:</b> votos nominais e de legenda para deputado estadual de PT, PCdoB e PV, sem os votos da Ana, nos dois anos (em 2022 a Ana concorreu pela REDE).</p>
 <p><b>Contatos sem repetição:</b> CRM, petições, pesquisas e páginas foram unidos pelo WhatsApp (últimos 8 dígitos): ${int(B.contatos_base)} contatos. As 24.433 assinaturas do Time Ana foram somadas descontando as que já estavam na base (${pct(B.timeana_ja_na_base, 0)} em uma amostra de ${int(LD.sobreposicao.amostra)}). Total estimado: ${int(B.total_unicos)}.</p>
