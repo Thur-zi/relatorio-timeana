@@ -237,25 +237,13 @@ $("#novos").innerHTML = `<div class="big">${int(tn.cidades_novas)} cidades</div>
   <div class="mini-kpis"><div><b>${int(tn.com_leads.cidades)}</b><span>delas tinham contatos na base: média de ${dec(tn.com_leads.media, 0)} votos por cidade</span></div><div><b>${int(tn.sem_leads.cidades)}</b><span>sem contatos: média de ${dec(tn.sem_leads.media, 0)} votos por cidade</span></div></div>
   <div class="bars">${tn.top.slice(0, 8).map(m => `<div class="l"><span>${esc(titulo(m.nome))}</span><i style="width:${m.v26 / tn.top[0].v26 * 100}%;max-width:50%"></i><em>${int(m.v26)}</em></div>`).join("")}</div>`;
 
-/* ---------- próximos passos */
-const med = arr => { const s = arr.slice().sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
-const convMed = med(D.bairros.filter(b => b.conv != null).map(b => b.conv));
-tabela("#tabOp1", [{t: "Bairro", k: "nome"}, {t: "Contatos", k: "leads", f: r => int(r.leads)}, {t: "Votos 2026", k: "v26", f: r => int(r.v26)}, {t: "Votos/100 contatos", k: "conv", f: r => dec(r.conv, 0)}],
-  D.bairros.filter(b => b.leads >= 60 && b.conv != null && b.conv < convMed), 1);
-tabela("#tabOp2", [{t: "Bairro", k: "nome"}, {t: "Votos 2026", k: "v26", f: r => int(r.v26)}, {t: "Contatos", k: "leads", f: r => int(r.leads)}, {t: "Regional", k: "regional"}],
-  D.bairros.filter(b => b.v26 >= 120).sort((a, b) => (a.leads / a.v26) - (b.leads / b.v26)).slice(0, 25), 1);
-tabela("#tabEsc", [{t: "Escola", k: "nome"}, {t: "Bairro", k: "bairro"}, {t: "Votos 2026", k: "v26", f: r => int(r.v26)}, {t: "% 2026", k: "p26", f: r => pct(r.p26, 1)}, {t: "Ana (p.p.)", k: "dpp", f: r => fpp(r.dpp)}], D.escolas.slice(0, 120), 2);
-const cc = D.concorrentes_bh, mxc = cc[0].votos;
-$("#concBH").innerHTML = cc.map(c => `<div class="l"><span>${c.eu ? "<b>" : ""}${esc(titulo(c.nome))}${c.eu ? "</b>" : ""} <span class="chip">${esc(c.partido)}</span></span><i style="width:${c.votos / mxc * 100}%;max-width:40%;background:${c.eu ? COR.vermelho : COR.lilas}"></i><em>${int(c.votos)}</em></div>`).join("");
-
 /* ---------- metodologia */
 $("#metodoTexto").innerHTML = `<p><b>Como ler os números:</b> <b>p.p.</b> (pontos percentuais) é a diferença entre duas porcentagens; se a Ana foi de 2,13% para 3,25% dos votos válidos, cresceu +1,12 p.p. <b>Participação</b> é a fatia dos votos válidos para deputado estadual que foi para a Ana. <b>×</b> indica quantas vezes a participação cresceu (2,2× = mais que o dobro). <b>Contatos por mil eleitores</b> mede o tamanho da base de contatos em relação ao eleitorado de cada lugar.</p>
 <p><b>Votação 2026:</b> boletins de urna publicados pelo TSE, seção por seção, conferidos com o arquivo oficial de detalhe da votação por seção (100% iguais). Total oficial: ${int(C.votos26)} votos, situação "${esc(C.situacao)}".</p>
 <p><b>Votação 2022:</b> arquivo oficial "votação por seção" do TSE (${int(C.votos22)} votos). Bairros e escolas de 2022 foram ligados aos locais de votação de 2026 pela zona e seção; cidades usam o total oficial.</p>
 <p><b>Federação:</b> votos nominais e de legenda para deputado estadual de PT, PCdoB e PV, sem os votos da Ana, nos dois anos (em 2022 a Ana concorreu pela REDE).</p>
 <p><b>Contatos sem repetição:</b> CRM, petições, pesquisas e páginas foram unidos pelo WhatsApp (últimos 8 dígitos): ${int(B.contatos_base)} contatos. As 24.433 assinaturas do Time Ana foram somadas descontando as que já estavam na base (${pct(B.timeana_ja_na_base, 0)} em uma amostra de ${int(LD.sobreposicao.amostra)}). Total estimado: ${int(B.total_unicos)}.</p>
-<p><b>Bairros:</b> escolas posicionadas pelas coordenadas do TSE dentro dos limites oficiais de bairros e regionais de BH (OpenStreetMap); bairros informados pelos contatos casados pelo nome.</p>
-<p><b>Limites:</b> o voto é secreto. As comparações mostram onde a mobilização esteve e como a votação se comportou nesses lugares; não permitem afirmar que um contato específico votou na Ana, nem atribuir votos a uma ação. A pesquisa da Giga Dados em Viçosa (${int(D.giga.entrevistas)} entrevistas, disco com 8 nomes) é comparada com a urna somando apenas os votos desses 8 candidatos na cidade.</p>`;
+<p><b>Bairros:</b> escolas posicionadas pelas coordenadas do TSE dentro dos limites oficiais de bairros e regionais de BH (OpenStreetMap); bairros informados pelos contatos casados pelo nome.</p>`;
 
 /* ---------- menu ativo */
 const secs = [...document.querySelectorAll("main section")];
