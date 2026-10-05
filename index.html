@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Paula Siqueira · Votação e mobilização · Eleições 2026</title>
+<meta name="description" content="Relatório interativo: o trabalho de mobilização da MOBI com Ana Paula Siqueira e a votação de 2026 comparada com 2022, por cidade, regional e bairro.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="estilo.css?v=11">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="estrela" viewBox="0 0 387 388"><path d="M133.6 373.8C131.2 372.7 130.8 370.3 131.6 359.9C131.8 357.2 132.2 352.3 132.4 349.0C132.6 345.8 132.8 342.7 132.9 342.2C132.9 341.8 133.2 338.6 133.4 335.1C133.6 331.7 133.8 328.5 133.9 328.0C133.9 327.5 134.1 325.2 134.2 322.9C134.4 320.5 134.7 316.4 134.9 313.6C135.3 308.1 135.9 300.0 136.2 294.0C136.4 291.9 136.7 287.9 136.9 285.1C137.4 278.6 137.9 270.5 138.4 263.6C138.6 260.6 138.9 256.8 139.0 255.2C140.4 238.8 139.8 235.6 135.0 230.7C131.7 227.4 134.4 228.4 73.9 208.3C43.9 198.3 19.0 189.9 18.5 189.6C14.1 187.4 14.2 183.4 18.8 181.1C19.2 180.9 27.4 178.0 37.0 174.8C46.6 171.6 73.7 162.5 97.2 154.5C149.3 137.0 145.9 138.3 149.1 134.7C153.0 130.5 152.1 135.1 161.2 71.4C165.2 43.5 168.7 19.9 169.0 19.0C170.2 15.0 173.9 14.3 176.6 17.6C177.8 19.1 177.3 18.2 188.4 39.4C194.1 50.1 204.8 70.6 212.4 84.9C230.1 118.5 230.2 118.7 237.3 120.4C241.3 121.3 230.2 123.4 332.1 102.5C372.0 94.3 370.7 94.5 372.4 96.8C374.1 99.2 373.6 100.0 360.1 118.3C349.3 132.7 334.9 152.1 309.5 186.2C293.5 207.9 293.4 207.9 292.7 212.9C292.1 217.2 291.6 215.8 308.1 251.6C337.4 315.1 342.9 327.2 343.3 328.4C344.8 332.8 341.8 335.6 337.3 334.0C335.7 333.4 336.0 333.6 295.6 311.4C233.7 277.3 239.4 280.4 236.0 279.2C228.5 276.7 225.2 278.1 217.1 287.1C215.2 289.2 212.2 292.5 210.4 294.4C206.7 298.4 198.1 307.7 193.6 312.6C190.8 315.7 179.5 328.0 174.1 333.9C167.8 340.7 162.2 346.9 159.9 349.4C158.5 350.9 155.9 353.7 154.1 355.6C152.3 357.6 148.7 361.5 146.1 364.4C137.9 373.3 136.0 374.8 133.6 373.8Z"/></symbol></svg>
+<header class="capa">
+  <svg class="deco e1 estrela" aria-hidden="true"><use href="#estrela"/></svg><svg class="deco e2 estrela" aria-hidden="true"><use href="#estrela"/></svg><svg class="deco e3 estrela" aria-hidden="true"><use href="#estrela"/></svg>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="topo"><img class="logo" src="img/logo-ana.png" alt="Ana Paula Siqueira"><span class="selo">Reeleita · Deputada Estadual</span>
+      <span class="por">relatório por <img src="img/mobi.png" alt="MOBI — Mobilização Inteligente"></span></div>
+    <h1>A votação <span>da</span> Ana<br>Eleições 2026</h1>
+    <p class="sub">Onde Ana Paula Siqueira teve voto, como a votação cresceu em relação a 2022 em Minas, em Belo Horizonte e em cada bairro, e como o trabalho de mobilização da MOBI acompanhou o mandato nesses territórios.</p>
+    <div class="kpis" id="kpis"></div>
+  </div>
+</header>
+<nav class="menu"><div class="wrap">
+  <a href="#resumo">Resumo</a><a href="#evolucao">2022 × 2026</a><a href="#votacao">Votação em MG</a><a href="#bh">Belo Horizonte</a><a href="#bairros">Bairros</a>
+  <a href="#trabalho">Mobilização</a><a href="#timeana">Time Ana</a><a href="#campanhas">Campanhas</a><a href="#pesquisas">Pesquisas</a>
+  <a href="#reflexo">Reflexos</a><a href="#giga">Pesquisa Viçosa</a><a href="#contraste">Ana × federação</a><a href="#oportunidades">Próximos passos</a><a href="#metodo">Metodologia</a>
+</div></nav>
+<main class="wrap">
+  <section id="resumo"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Resumo</div><h2>Em poucas linhas</h2>
+    <div class="achados" id="achados"></div>
+    <div class="aviso">A reeleição é resultado do mandato, da candidata e de toda a campanha. Este relatório mostra onde e como a mobilização feita pela MOBI esteve presente, e compara esses territórios com 2022 e com a própria federação. O voto é secreto: as comparações indicam caminhos e coincidências, não relação de causa e efeito.</div>
+  </section>
+  <div class="divisor" id="votos"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg><div><span>Parte 1</span><b>A votação da Ana</b><small>Minas Gerais, Belo Horizonte e bairros, de 2022 a 2026</small></div></div>
+  <section id="evolucao"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>2022 × 2026</div><h2>De 2022 para 2026</h2>
+    <p class="lead" id="evolTexto"></p>
+    <div class="comparativo" id="comparativo"></div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Cidades com mais votos: 2022 × 2026</h3><canvas id="gTopCid" height="330"></canvas></div>
+      <div class="card"><h3>Onde a Ana mais cresceu (votos a mais que em 2022)</h3><div class="bars" id="maisCresceu"></div><p class="nota">Inclui cidades onde ela não tinha nenhum voto em 2022.</p></div>
+    </div>
+  </section>
+  <section id="votacao"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Minas Gerais</div><h2>Onde a Ana teve voto</h2>
+    <p class="lead" id="mgTexto"></p>
+    <div class="card" style="margin-top:16px">
+      <div class="seg" id="modoMG"><button data-m="p26" aria-pressed="true">% dos votos 2026</button><button data-m="p22">% dos votos 2022</button><button data-m="dpp">Crescimento (p.p.)</button><button data-m="leads_mil">Contatos por mil eleitores</button></div>
+      <div class="mapa" id="mapaMG"></div><div class="legenda" id="legMG"></div>
+    </div>
+    <div class="card" style="margin-top:16px"><div class="ferr"><h3 style="margin:0">Todas as cidades</h3><input id="qMun" placeholder="Buscar cidade"></div><div class="tab-wrap" id="tabMun"></div></div>
+  </section>
+  <section id="bh"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Belo Horizonte</div><h2>Regionais de BH</h2>
+    <p class="lead" id="bhTexto"></p>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Votos por regional: 2022 × 2026</h3><canvas id="gReg" height="250"></canvas></div>
+      <div class="card"><h3>Contatos × votos por regional (2026)</h3><canvas id="gRegLeads" height="250"></canvas></div>
+    </div>
+  </section>
+  <section id="bairros"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Segmentação por bairro</div><h2>A votação bairro a bairro</h2>
+    <p class="lead">Cada escola de votação foi colocada no seu bairro oficial e os votos de cada seção foram somados por bairro, em 2022 e em 2026. O mapa mostra onde a Ana é mais forte e onde mais cresceu; também é possível ver, como camada extra, os contatos da mobilização em cada bairro.</p>
+    <div class="card" style="margin-top:16px">
+      <div class="seg" id="modoBH"><button data-m="p26" aria-pressed="true">% dos votos 2026</button><button data-m="dpp">Crescimento desde 2022 (p.p.)</button><button data-m="leads_mil">Contatos por mil eleitores</button><button data-m="mult_mil">Assinaturas da rede de lideranças</button></div>
+      <div class="mapa" id="mapaBH"></div><div class="legenda" id="legBH"></div>
+    </div>
+    <div class="card" style="margin-top:16px"><div class="ferr"><h3 style="margin:0">Todos os bairros</h3><input id="qBai" placeholder="Buscar bairro ou regional"></div><div class="tab-wrap" id="tabBai"></div></div>
+  </section>
+  <div class="divisor" id="mobi"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg><div><span>Parte 2</span><b>O trabalho de mobilização</b><small>como a MOBI atuou ao lado da Ana em 2025 e 2026</small></div></div>
+  <section id="trabalho" class="faixa lilas"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>O trabalho da MOBI</div><h2>O que foi construído</h2>
+    <p class="lead" id="trabTexto"></p>
+    <div class="card" style="margin-top:16px"><h3>Linha do tempo das ações</h3><div class="gantt" id="gantt"></div>
+      <p class="nota">Cada barra mostra o período de captação de cada ação (do primeiro ao último registro).</p></div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Contatos por ação (sem repetição)</h3><div class="bars" id="porFonte"></div><p class="nota" id="porFonteNota"></p></div>
+      <div class="card"><h3>Uma base que se conversa</h3><canvas id="gMulti" height="230"></canvas><p class="nota" id="multiNota"></p></div>
+    </div>
+    <div class="card reflexo-campanha" style="margin-top:16px"><span class="selo-reflexo"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Reflexo na campanha</span><div id="refTrabalho"></div></div>
+
+  </section>
+  <section id="timeana"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Mobilização digital</div><h2>Time Ana</h2>
+    <p class="lead" id="taTexto"></p>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Funil do site</h3><div class="bars" id="funil"></div><p class="nota" id="funilNota"></p></div>
+      <div class="card"><h3>Rede de lideranças</h3><canvas id="gRede" height="230"></canvas><p class="nota" id="redeNota"></p></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Assinaturas por dia e acumulado</h3><canvas id="gDias" height="110"></canvas></div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Cidades com mais assinaturas</h3><div class="bars" id="taCidades"></div></div>
+      <div class="card"><h3>Bairros de BH com mais assinaturas</h3><div class="bars" id="taBairros"></div></div>
+    </div>
+    <div class="card reflexo-campanha" style="margin-top:16px"><span class="selo-reflexo"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Reflexo na campanha</span><div id="refTimeAna"></div></div>
+
+  </section>
+  <section id="campanhas"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Campanhas temáticas</div><h2>Cada ação no seu território</h2>
+    <p class="lead" id="campTexto"></p>
+    <div id="casos"></div>
+  </section>
+  <section id="pesquisas" class="faixa vermelha"><div class="solta"><div><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Escuta de campo</div><h2>Pesquisas porta a porta</h2>
+    <p class="lead" id="pesqTexto"></p></div><img src="img/solta-a-voz.png" alt="Solta a voz: movimento de escuta da Ana Paula"></div>
+    <div class="grid3" style="margin-top:16px" id="pesqCards"></div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Alto Vera Cruz: o que os moradores sabiam da Ana</h3><canvas id="gConhece" height="260"></canvas></div>
+      <div class="card"><h3>Como acompanham a política</h3><canvas id="gMeios" height="260"></canvas><p class="nota">Pesquisa Alto Vera Cruz, respostas com um único meio.</p></div>
+    </div>
+  </section>
+  <div class="divisor" id="reflexo-div"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg><div><span>Parte 3</span><b>Reflexos</b><small>o trabalho da Ana e a mobilização nos mesmos territórios</small></div></div>
+  <section id="reflexo" class="faixa lilas"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Reflexos</div><h2>As pautas da Ana no território</h2>
+    <p class="lead" id="reflexoTexto"></p>
+    <div class="reflexos" id="reflexos"></div>
+  </section>
+  <section id="giga"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Pesquisa Giga Dados · Viçosa</div><h2>A pesquisa e a urna</h2>
+    <p class="lead" id="gigaTexto"></p>
+    <div class="mini-kpis" id="gigaKpis" style="margin-top:14px"></div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Entre os 8 nomes do disco: pesquisa × urna</h3><canvas id="gGiga" height="280"></canvas><p class="nota">Pesquisa: % de quem escolheu um dos 8 nomes. Urna: % dos votos somados desses 8 candidatos em Viçosa.</p></div>
+      <div class="card"><h3>Intenção de voto na Ana por perfil</h3><canvas id="gGigaPerfil" height="280"></canvas><p class="nota" id="gigaPerfilNota"></p></div>
+    </div>
+  </section>
+  <section id="contraste" class="faixa roxa"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Contraste com 2022</div><h2>A Ana e a federação nos mesmos lugares</h2>
+    <p class="lead">Para separar o movimento da candidata do movimento geral da esquerda, comparamos, nos mesmos territórios, o crescimento da Ana com o crescimento dos outros candidatos a deputado estadual da sua federação (PT, PCdoB e PV). Os bairros e as cidades foram divididos em quatro grupos, do menor para o maior número de contatos por eleitor.</p>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Bairros de BH</h3><canvas id="gCompBH" height="260"></canvas><p class="nota" id="compBHnota"></p></div>
+      <div class="card"><h3>Cidades de MG (fora BH)</h3><canvas id="gCompMun" height="260"></canvas><p class="nota" id="compMunNota"></p></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Bairros de BH: contatos × votos (por mil eleitores)</h3><canvas id="gDisp" height="280"></canvas><p class="nota" id="dispNota"></p></div>
+      <div class="card"><h3>Novos territórios</h3><div id="novos"></div></div>
+    </div>
+  </section>
+  <section id="oportunidades"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Próximo ciclo</div><h2>Onde agir agora</h2>
+    <div class="grid2" style="margin-top:12px">
+      <div class="card"><h3>Muitos contatos, votação abaixo do potencial</h3><p class="nota">Bairros com base cadastrada grande e poucos votos por contato. Prioridade para relacionamento e mobilização.</p><div class="tab-wrap" id="tabOp1" style="max-height:380px"></div></div>
+      <div class="card"><h3>Muitos votos, poucos contatos</h3><p class="nota">Bairros onde a Ana já tem voto, mas quase não há contatos na base. Prioridade para captação.</p><div class="tab-wrap" id="tabOp2" style="max-height:380px"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>Escolas onde a Ana foi mais votada em BH</h3><div class="tab-wrap" id="tabEsc" style="max-height:420px"></div></div>
+      <div class="card"><h3>Disputa por Dep. Estadual em BH</h3><div class="bars" id="concBH"></div></div>
+    </div>
+  </section>
+  <section id="metodo"><div class="kicker"><svg class="estrela" aria-hidden="true"><use href="#estrela"/></svg>Metodologia</div><h2>Fontes e cuidados</h2>
+    <div class="metodo" id="metodoTexto"></div>
+  </section>
+</main>
+<footer><div class="wrap">Relatório preparado por <img src="img/mobi.png" alt="MOBI — Mobilização Inteligente"> · Dados oficiais do TSE (Eleições 2026 e 2022) e bases de contatos da campanha. Documento de uso interno: não contém dados pessoais, apenas números agregados.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="dados.js?v=15"></script>
+<script src="geo.js"></script>
+<script src="relatorio.js?v=16"></script>
+<script src="anima.js?v=9"></script>
+</body>
+</html>
